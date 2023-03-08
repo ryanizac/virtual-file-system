@@ -18,6 +18,14 @@ export class VirtualFileSystem {
     return this.content;
   }
 
+  createFolder(item: IFolder) {
+    this.content.push(item);
+  }
+
+  createFile(item: IFile) {
+    this.content.push(item);
+  }
+
   static CreateRoot() {
     return new VirtualFileSystem({
       name: "root",
