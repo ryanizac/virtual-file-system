@@ -1,13 +1,13 @@
 import { VirtualFile } from "../file";
-import { IFolder } from "../folder";
+import { VirtualFolder } from "../folder";
 
 export class VirtualFileSystem {
   private name: string;
-  private content: Array<IFolder | VirtualFile>;
+  private content: Array<VirtualFolder | VirtualFile>;
 
-  constructor(root: IFolder) {
-    this.name = root.name;
-    this.content = root.content;
+  private constructor() {
+    this.name = "root";
+    this.content = [];
   }
 
   getName() {
@@ -18,7 +18,7 @@ export class VirtualFileSystem {
     return this.content;
   }
 
-  createFolder(item: IFolder) {
+  createFolder(item: VirtualFolder) {
     this.content.push(item);
   }
 
@@ -27,9 +27,6 @@ export class VirtualFileSystem {
   }
 
   static CreateRoot() {
-    return new VirtualFileSystem({
-      name: "root",
-      content: [],
-    });
+    return new VirtualFileSystem();
   }
 }
