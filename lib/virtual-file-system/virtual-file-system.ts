@@ -1,9 +1,9 @@
-import { IFile } from "../file";
+import { VirtualFile } from "../file";
 import { IFolder } from "../folder";
 
 export class VirtualFileSystem {
   private name: string;
-  private content: Array<IFolder | IFile>;
+  private content: Array<IFolder | VirtualFile>;
 
   constructor(root: IFolder) {
     this.name = root.name;
@@ -22,7 +22,7 @@ export class VirtualFileSystem {
     this.content.push(item);
   }
 
-  createFile(item: IFile) {
+  createFile(item: VirtualFile) {
     this.content.push(item);
   }
 

@@ -1,6 +1,6 @@
-import { IFile } from "../file";
+import { VirtualFile } from "../file";
 
 export type IFolder = {
   name: string;
-  content: Array<IFolder | IFile>;
+  content: Array<IFolder | VirtualFile>;
 };
